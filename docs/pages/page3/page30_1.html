@@ -5,8 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>평산이앤씨 | 건물의 가치와 품위를 높여주는 건물관리 전문회사</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-  <link rel="stylesheet" href="pageStyle.css">
-  <link rel="stylesheet" href="pageStyle2.css">
+  <link rel="stylesheet" href="style1.css">
   <meta name="naver-site-verification" content="6fb2c5d1b616105aad8fbb1fe8f444d1be8140c9" />
   <meta name="google-site-verification" content="zFIW-RSzziuvufzHwY0fJmRDngTHiDzAVkw_eiu6pdc" />
   <meta name="description" property="og:description" content="건물의 가치와 품위를 높여주는 건물관리 전문회사 평산이앤씨">
@@ -14,7 +13,6 @@
   <meta property="og:title" content="건물의 가치와 품위를 높여주는 건물관리 전문회사 평산이앤씨"> 
   <meta property="og:url" content="#">
   <link rel="shortcut icon" href="../../image/favicon.png">
-  <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=wok3p1t7j1"></script>
 </head>
 <body>
   <a href="../../index.html">
@@ -70,33 +68,45 @@
       </div>
     </div>
   </div>
-  <div class="main_body">
+	<div class="main_body">
     <div class="top_body">
       <div class="remocon">
-        <p><b>회사소개</b></p>
+        <div><b>커뮤니티</b></div>
       </div>
       <div class="body_title">
-        <h2><b>오시는 길</b></h2>
-        <p>Home > 회사소개 > <b>오시는 길</b></p>
+        <h2><b>공지사항</b></h2>
+        <div>Home > <b>공지사항</b></div>
       </div>
     </div> 
   </div>
   <div class="remocon_mainContent">
     <div class="remoconBody_r">
-      <a href="page00.html"><div>인사말</div></a>
-      <a href="#"><div class="pointer">오시는 길</div></a>
+      <a href="page30.html"><div class="pointer">공지사항</div></a>
     </div>
     <div class="mainContent">
-      <section>
-				<div class="mainContentText">주소 : 경기도 광명시 일직로 2, 제에이동 12층 1218호(일직동, 광명무역센터)</div>
-        <div class="map">
-          <div id="map"></div>
+      <div class="gesipan">
+        <div class="gesipan_top">
+          <div class="gesipan_topindex"></div>
+          <div class="gesipan_toptitle"></div>
+          <div class="gesipan_topmaker"></div>
+          <div class="gesipan_toptime"></div>
         </div>
-			</section>
+        <div class="gesipan_content">
+    
+        </div>
+        <div class="imgBox">
+
+        </div>
+        <p>첨부파일</p>
+        <div class="downBox">
+        
+        </div>
+      </div>
     </div>
   </div>
+ 
   
-  
+
   <footer> 
     <div class="footer_r">
       <div class="teck_footer_logo">
@@ -167,56 +177,20 @@
     </div>
   </div>
 
+
+
+
+
+
   <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
   <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-app.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-auth.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-firestore.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-storage.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
-  <script>
-    var HOME_PATH = window.HOME_PATH || '.';
-
-
-map = new naver.maps.Map('map', {
-    center: new naver.maps.LatLng(37.419939, 126.889271),
-    zoom: 16
-});
-
-
-var hyeonjinHouse = new naver.maps.LatLng(37.419939, 126.889271);
-
-
-var markers = [];
-var infowindows = [];
-
-
-markers.push(new naver.maps.Marker({
-    map: map,
-    position: hyeonjinHouse
-}));
-
-infowindows.push(new naver.maps.InfoWindow({
-    content: [
-        '<div class="iw_inner">',
-        '   <h5>(주)평산이앤씨</h5>',
-        '</div>'
-    ].join('')
-}));
-
-
-for(let i=0; i<markers.length; i++){
-    naver.maps.Event.addListener(markers[i], "click", function(e) {
-        if (infowindows[i].getMap()) {
-            infowindows[i].close();
-        } else {
-            infowindows[i].open(map, markers[i]);
-        }
-    });
-}
-
-infowindows[0].open(map, markers[0]);
-  </script>
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>	
+  <script src="gesipanData2.js"></script>
+  <script src="gesipanContent2.js"></script>
 </body>
 <script type="text/javascript">
 	// F12키 금지
@@ -231,6 +205,7 @@ infowindows[0].open(map, markers[0]);
   $(document).ready(function(){
 		$(document).on('keydown',function(e){
 			if (e.keyCode == 93) {  /* F12키 */
+        alert("보안을 위해 개발자 모드를 금지시켰습니다.\n자세한 내용은 제작자에게 문의주세요.")
         e.preventDefault();
 				e.returnValue = false;
 			}
@@ -238,7 +213,7 @@ infowindows[0].open(map, markers[0]);
 	});
 	// 마우스오른쪽 클릭방지
 	document.onmousedown=disableclick;
-	// status="보안을 위해 개발자 모드를 금지시켰습니다.\n자세한 내용은 제작자에게 문의주세요.";
+	status="보안을 위해 개발자 모드를 금지시켰습니다.\n자세한 내용은 제작자에게 문의주세요.";
 	function disableclick(event){
 		if (event.button==2) {
 			alert(status);
