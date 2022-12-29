@@ -22,12 +22,10 @@ const master = () => {
     gesipanIndex.textContent = questionList.length - x
     const gesipanTitle = document.createElement("div")
     gesipanTitle.className = "gesipan_title"
-    let nameFirst = questionList[i].name.split('')
-    let nameFirst2 = nameFirst[0]
-    gesipanTitle.textContent = questionList[i].phone1 + '-' + questionList[i].phone2 + '-' + questionList[i].phone3
+    gesipanTitle.textContent = questionList[x].회사명
     const gesipanMaker = document.createElement("div")
     gesipanMaker.className = "gesipan_maker"
-    gesipanMaker.textContent = questionList[x].name
+    gesipanMaker.textContent = questionList[x].담당자
     const gesipanTime = document.createElement("div")
     gesipanTime.className = "gesipan_time"
     gesipanTime.textContent = questionList[x].time

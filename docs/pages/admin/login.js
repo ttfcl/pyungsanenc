@@ -6,12 +6,12 @@ var happyend2 = document.querySelector(".happyend2")
 var badend = document.querySelector(".badend")
 var js = []
 var firebaseConfig = {
-  apiKey: "AIzaSyCJeAlubz3MjBpH0oI0LCjrGut2HP-jxRA",
-  authDomain: "madoyo-78d70.firebaseapp.com",
-  projectId: "madoyo-78d70",
-  storageBucket: "madoyo-78d70.appspot.com",
-  messagingSenderId: "127737485259",
-  appId: "1:127737485259:web:f28053ac2b40fdc08b084e"
+  apiKey: "AIzaSyA-fKAE9folh2nGLyFKWjxzhgRsvZbteIc",
+  authDomain: "pyungsanenc-a45a7.firebaseapp.com",
+  projectId: "pyungsanenc-a45a7",
+  storageBucket: "pyungsanenc-a45a7.appspot.com",
+  messagingSenderId: "259473466937",
+  appId: "1:259473466937:web:a3f09bf219c5930d0ccfe8"
   };
   firebase.initializeApp(firebaseConfig);
 
@@ -26,13 +26,13 @@ login.onclick = function() {
     let id = document.querySelector("#id")
     let pw = document.querySelector("#pw")
     console.log(id.value)
-    if(id.value === js[0].id && pw.value === js[0].pw) {
+    if(id.value === "admin" && pw.value === "fadsaew123!#") {
         happyend.classList.remove('hide')
         happyend2.classList.remove('hide')
         Ptitle.classList.add('hide')
         badend.classList.add('hide')
         localStorage.removeItem("master")
-        localStorage.setItem("master", js[0].key)
+        localStorage.setItem("master", "501")
     } else {
         Ptitle.classList.remove('hide')
         badend.classList.remove('hide')

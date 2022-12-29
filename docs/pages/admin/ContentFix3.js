@@ -2,17 +2,17 @@
 var del = document.querySelector("#del")
 var superkey = localStorage.getItem("key3")
 var firebaseConfig = {
-  apiKey: "AIzaSyCJeAlubz3MjBpH0oI0LCjrGut2HP-jxRA",
-  authDomain: "madoyo-78d70.firebaseapp.com",
-  projectId: "madoyo-78d70",
-  storageBucket: "madoyo-78d70.appspot.com",
-  messagingSenderId: "127737485259",
-  appId: "1:127737485259:web:f28053ac2b40fdc08b084e"
+  apiKey: "AIzaSyA-fKAE9folh2nGLyFKWjxzhgRsvZbteIc",
+  authDomain: "pyungsanenc-a45a7.firebaseapp.com",
+  projectId: "pyungsanenc-a45a7",
+  storageBucket: "pyungsanenc-a45a7.appspot.com",
+  messagingSenderId: "259473466937",
+  appId: "1:259473466937:web:a3f09bf219c5930d0ccfe8"
 };
 firebase.initializeApp(firebaseConfig);
 
 const db = firebase.firestore();
-db.collection('question').get().then((결과)=>{
+db.collection('product').get().then((결과)=>{
   결과.forEach((doc)=>{
     questionList.unshift(doc.data())
   })
@@ -30,10 +30,16 @@ const master = () => {
 
   const render = () => {
     gesipanTopindex.textContent = masterKey
-    gesipanToptitle.textContent = questionList[questionList.length - masterKey].phone1 + '-' + questionList[questionList.length - masterKey].phone2 + '-' + questionList[questionList.length - masterKey].phone3
+    gesipanToptitle.textContent = questionList[questionList.length - masterKey].phone
     gesipanTopmaker.textContent = questionList[questionList.length - masterKey].name
     gesipanToptime.textContent = questionList[questionList.length - masterKey].time
-    var 템플릿 = String(`${questionList[questionList.length - masterKey].content}`)
+
+    var 템플릿 = `문의날짜: ${questionList[questionList.length - masterKey].time}</br>
+    문의제목: ${questionList[questionList.length - masterKey].회사명}</br>
+    담당자 성함: ${questionList[questionList.length - masterKey].담당자}</br>
+    전화번호: ${questionList[questionList.length - masterKey].연락처}</br>
+    이메일: ${questionList[questionList.length - masterKey].이메일}</br>
+    문의내용: </br>${questionList[questionList.length - masterKey].content}</br>`
     $(".gesipan_content").append(템플릿)
   }   
   render()
@@ -44,12 +50,13 @@ const master = () => {
     var directer = ''  
     let count = superkey
     let masterCount = questionList.length
-    for(let i = 0 ; i < count ; i++) {
+    console.log(count)
+    for(let i = 0 ; i < count + 1 ; i++) {
       directer = directer + '1'
       questionList.pop()
     }
     console.log(directer)
-    db.collection('question').doc(directer).delete().then(() => {
+    db.collection('product').doc(directer).delete().then(() => {
       for(let j = 0 ; j < masterCount - count ; j++) {
         console.log("2")
         let newquestionList = questionList.pop()
@@ -70,9 +77,9 @@ const master = () => {
           'time' : time,
           'index' : newindex
         }
-        db.collection('question').doc(directer).set(save)
+        db.collection('product').doc(directer).set(save)
         directer = directer + '1'
-        db.collection('question').doc(directer).delete()
+        db.collection('product').doc(directer).delete()
       }
     } )
     
